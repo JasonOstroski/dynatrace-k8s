@@ -50,15 +50,15 @@ else
             echo -e "${YLW}Creating Sock Shop Synthetic Monitors...${NC}"
             #create synthetic tests (4 with users, 4 anonymous)
 
-            USERNAME_PRE=$(grep "SOCKSHOP_USERNAME_PRE=" ../../configuration.conf | sed 's~SOCKSHOP_USERNAME_PRE=[ \t]*~~')
+            #USERNAME_PRE=$(grep "SOCKSHOP_USERNAME_PRE=" ../../configuration.conf | sed 's~SOCKSHOP_USERNAME_PRE=[ \t]*~~')
 
             SYNTHETIC_CONFIG=$(cat ./sockshop_synthetic_template.json | sed "s,<SOCKSHOP_FRONTEND_URL>,$PROD_FRONTEND_URL," | sed "s/<SOCKSHOP_WEB_APP_ID>/$PRODUCTION_APPLICATION_ID/" )
             SYNTHETIC_CONFIG_ANONYMOUS=$(cat ./sockshop_synthetic_template_anonymous.json | sed "s,<SOCKSHOP_FRONTEND_URL>,$PROD_FRONTEND_URL," | sed "s/<SOCKSHOP_WEB_APP_ID>/$PRODUCTION_APPLICATION_ID/" )
             for i in {1..4}
             do
-                sleep 30s
-		        SYNTHETIC_CONFIG_NEW=$(echo $SYNTHETIC_CONFIG | sed "s/<SOCKSHOP_TEST_NAME>/Sock Shop - $i/" | sed "s/<SOCKSHOP_USERNAME>/$USERNAME_PRE$i/")
-                RESPONSE=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: Api-Token $DT_CONFIG_TOKEN" -d "$SYNTHETIC_CONFIG_NEW" $DT_API_URL/api/v1/synthetic/monitors)
+                #sleep 30s
+		#        SYNTHETIC_CONFIG_NEW=$(echo $SYNTHETIC_CONFIG | sed "s/<SOCKSHOP_TEST_NAME>/Sock Shop - $i/" | sed "s/<SOCKSHOP_USERNAME>/$USERNAME_PRE$i/")
+               # RESPONSE=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: Api-Token $DT_CONFIG_TOKEN" -d "$SYNTHETIC_CONFIG_NEW" $DT_API_URL/api/v1/synthetic/monitors)
                 sleep 30s
                 SYNTHETIC_CONFIG_ANONYMOUS_NEW=$(echo $SYNTHETIC_CONFIG_ANONYMOUS | sed "s/<SOCKSHOP_TEST_NAME>/Sock Shop Anonymous - $i/")
                 RESPONSE2=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: Api-Token $DT_CONFIG_TOKEN" -d "$SYNTHETIC_CONFIG_ANONYMOUS_NEW" $DT_API_URL/api/v1/synthetic/monitors)
