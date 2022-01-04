@@ -5,7 +5,7 @@ NC='\033[0m'
 
 echo -e "${YLW}Please enter your Dynatrace credentials as requested below: ${NC}"
 API_URL=""
-read -p "API URL (see the README for more details): " API_URL
+read -p "Dynatrace URL (see the README for more details): " API_URL
 API_TOKEN=""
 read -p "API token: " API_TOKEN
 #PAAS_TOKEN=""
