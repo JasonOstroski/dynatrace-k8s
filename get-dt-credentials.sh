@@ -16,15 +16,13 @@ echo "API_URL: " $API_URL
 echo "API token: " $API_TOKEN
 #echo "PaaS token: " $PAAS_TOKEN
  
-read -p "Is this correct? (y/n): " -n 1 -r
+#read -p "Is this correct? (y/n): " -n 1 -r
 
-if [[ $REPLY =~ ^[Yy]$ ]] 
-then
 	sed -i -r 's~DT_API_URL=(.*)~DT_API_URL\='"$API_URL"'~' ./configuration.conf
 	sed -i -r 's~DT_API_TOKEN=(.*)~DT_API_TOKEN\='"$API_TOKEN"'~' ./configuration.conf
 	#sed -i -r 's~DT_PAAS_TOKEN=(.*)~DT_PAAS_TOKEN\='"$PAAS_TOKEN"'~' ./configuration.conf
 	sed -i -r 's~DT_CONFIG_TOKEN=(.*)~DT_CONFIG_TOKEN\='"$CONFIG_TOKEN"'~' ./configuration.conf
-fi
+#fi
 
 echo ""
 
