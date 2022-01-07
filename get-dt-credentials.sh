@@ -1,19 +1,22 @@
 #!/bin/bash
 
+##Commented out to have no prompts
 #YLW='\033[1;33m'
 #NC='\033[0m'
 
 #echo -e "${YLW}Please enter your Dynatrace credentials as requested below: ${NC}"
-API_URL="$1"
+#API_URL=""
 #read -p "Dynatrace URL (see the README for more details): " API_URL
-API_TOKEN="$2"
+#API_TOKEN=""
 #read -p "API token: " API_TOKEN
 #PAAS_TOKEN=""
 #read -p "PaaS token: " PAAS_TOKEN
+API_URL="$1"
+API_URL="$2"
 CONFIG_TOKEN=$API_TOKEN
-echo -e "${YLW}Please confirm these are correct: ${NC}"
-echo "API_URL: " $API_URL
-echo "API token: " $API_TOKEN
+#echo -e "${YLW}Please confirm these are correct: ${NC}"
+#echo "API_URL: " $API_URL
+#echo "API token: " $API_TOKEN
 #echo "PaaS token: " $PAAS_TOKEN
  
 #read -p "Is this correct? (y/n): " -n 1 -r
