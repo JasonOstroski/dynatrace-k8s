@@ -1,13 +1,13 @@
 #!/bin/bash
 
-YLW='\033[1;33m'
-NC='\033[0m'
+#YLW='\033[1;33m'
+#NC='\033[0m'
 
-echo -e "${YLW}Please enter your Dynatrace credentials as requested below: ${NC}"
-API_URL=""
-read -p "Dynatrace URL (see the README for more details): " API_URL
-API_TOKEN=""
-read -p "API token: " API_TOKEN
+#echo -e "${YLW}Please enter your Dynatrace credentials as requested below: ${NC}"
+API_URL="$1"
+#read -p "Dynatrace URL (see the README for more details): " API_URL
+API_TOKEN="$2"
+#read -p "API token: " API_TOKEN
 #PAAS_TOKEN=""
 #read -p "PaaS token: " PAAS_TOKEN
 CONFIG_TOKEN=$API_TOKEN
