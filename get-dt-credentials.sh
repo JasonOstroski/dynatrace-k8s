@@ -12,7 +12,7 @@
 #PAAS_TOKEN=""
 #read -p "PaaS token: " PAAS_TOKEN
 API_URL="$1"
-API_URL="$2"
+API_TOKEN="$2"
 CONFIG_TOKEN=$API_TOKEN
 #echo -e "${YLW}Please confirm these are correct: ${NC}"
 #echo "API_URL: " $API_URL
