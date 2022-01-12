@@ -34,27 +34,29 @@ kubectl apply -f ../manifests/sockshop-app/sockshop-production/
 #fi
 
 echo -e "${YLW}Waiting about 5 minutes for all pods to become ready...${NC}"
-sleep 330s
+sleep 450s
 kubectl get po --all-namespaces -l product=sockshop
+DEV_CARTS_DOMAIN=$(kubectl describe svc carts -n sockshop-dev | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
 
-START=$(date +%s)
-DIFF=0
+
+#START=$(date +%s)
+#DIFF=0
 
 # while not all public urls are available or more than 10 minutes have elapsed
-while [ $DIFF -lt 600 ];
-do
+#while [ $DIFF -lt 600 ];
+#do
  # if [ ! -z "$1" ] && [ "$1" == "-istio" ]
  #   then
  #     PROD_FRONTEND_DOMAIN=$(kubectl describe svc istio-ingressgateway -n istio-system | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
  #   else
  #     PROD_FRONTEND_DOMAIN=$(kubectl describe svc front-end -n sockshop-production | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
  # fi
-      DEV_CARTS_DOMAIN=$(kubectl describe svc carts -n sockshop-dev | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
-  echo -n .
-  sleep 4
-  NOW=$(date +%s)
-  DIFF=$(( $NOW - $START ))
-done
+#      DEV_CARTS_DOMAIN=$(kubectl describe svc carts -n sockshop-dev | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
+#  echo -n .
+#  sleep 4
+ # NOW=$(date +%s)
+ # DIFF=$(( $NOW - $START ))
+#done
 
 echo ""
 
