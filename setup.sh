@@ -7,8 +7,8 @@ CURRENT_DIR=$(pwd)
 
 ## Deploy Istio
 
-#cd $CURRENT_DIR/istio
-#/bin/bash ./istio-install.sh
+cd $CURRENT_DIR/istio
+/bin/bash ./istio-install.sh
 
 ## Deploy the Dynatrace Operator
 
