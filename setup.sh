@@ -5,10 +5,13 @@ NC='\033[0m'
 
 CURRENT_DIR=$(pwd)
 
+cd $CURRENT_DIR/sockshop/scripts
+./deploy-sockshop.sh
+
 ## Deploy Istio
 
-cd $CURRENT_DIR/istio
-/bin/bash ./istio-install.sh
+#cd $CURRENT_DIR/istio
+#/bin/bash ./istio-install.sh
 
 ## Deploy the Dynatrace Operator
 
@@ -36,14 +39,14 @@ cd $CURRENT_DIR/istio
 #./config-dt-webapps.sh
 
 ## Deploy Sock Shop app
-cd $CURRENT_DIR/sockshop/scripts
-./deploy-sockshop.sh -istio
-./get-sockshop-urls.sh -istio
-./create-sockshop-accounts.sh
+#cd $CURRENT_DIR/sockshop/scripts
+#./deploy-sockshop.sh -istio
+#./get-sockshop-urls.sh -istio
+#./create-sockshop-accounts.sh
 
 ## Configure Dynatrace for Sock Shop
-cd $CURRENT_DIR/sockshop/dynatrace
-./config-dt-webapps-synth.sh -istio
+#cd $CURRENT_DIR/sockshop/dynatrace
+#./config-dt-webapps-synth.sh -istio
 
 ## Create dashboards
 #cd $CURRENT_DIR/dynatrace/dashboards
