@@ -8,8 +8,8 @@ echo -e "${YLW}Deploying Sock Shop pods in sockshop-dev and sockshop-production.
 kubectl create -f ../manifests/k8s-namespaces.yml
 #kubectl apply -f ../manifests/compute-resources-quota.yml
 
-kubectl -n sockshop-production create rolebinding default-view --clusterrole=view --serviceaccount=sockshop-production:default
-kubectl -n sockshop-dev create rolebinding default-view --clusterrole=view --serviceaccount=sockshop-dev:default
+#kubectl -n sockshop-production create rolebinding default-view --clusterrole=view --serviceaccount=sockshop-production:default
+#kubectl -n sockshop-dev create rolebinding default-view --clusterrole=view --serviceaccount=sockshop-dev:default
 
 kubectl apply -f ../manifests/backend-services/user-db/sockshop-dev/
 kubectl apply -f ../manifests/backend-services/user-db/sockshop-production/
@@ -36,7 +36,7 @@ kubectl apply -f ../manifests/sockshop-app/sockshop-production/
 echo -e "${YLW}Waiting about 5 minutes for all pods to become ready...${NC}"
 sleep 450s
 kubectl get po --all-namespaces -l product=sockshop
-DEV_CARTS_DOMAIN=$(kubectl describe svc carts -n sockshop-dev | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
+#DEV_CARTS_DOMAIN=$(kubectl describe svc carts -n sockshop-dev | grep "LoadBalancer Ingress:" | sed 's/LoadBalancer Ingress:[ \t]*//')
 
 
 #START=$(date +%s)
@@ -76,6 +76,6 @@ echo ""
 #  echo "Sock Shop Dev Carts Public Domain: $DEV_CARTS_DOMAIN"
 #fi
 
-echo -e "${YLW}Starting carts load test${NC}"
+#echo -e "${YLW}Starting carts load test${NC}"
 #start dev carts load 
-nohup ./carts-load.sh &
+#nohup ./carts-load.sh &
